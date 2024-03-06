@@ -99,7 +99,6 @@ body {
 .sidebar .logo-menu .logo {
   font-size: 50px;
   color: var(--accent-color);
-  var(--accent-color);
   pointer-events: none;
 
 }
