@@ -1,29 +1,165 @@
 :root {
   --bg-color: rgb(20, 20, 20);
   --card-color: rgb(23, 23, 23);
+  --glass-theme: rgba(29, 28, 28, 0.473);
+  --accent-color: rgb(242, 166, 193);
+}
+
+head {
+  width: 100vw;
+  height: 100dvh;
 }
 
 body {
   align-items: center;
   background-color: var(--bg-color);
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   justify-content: center;
   margin: 0px;
   overflow: hidden;
   padding: 0px;
+  background: url(/Assets/image.png) no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
+
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100dvh;
+  background: var(--glass-theme);
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  inset: 0.2rem;
+}
+
+.listcontent:hover>.listcontent::after {
+  opacity: 1;
+}
+
+.listcontent::before,
+.listcontent::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.listcontent::before {
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.06),
+      transparent 40%);
+  z-index: 3;
+}
+
+.listcontent::after {
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.4),
+      transparent 40%);
+  z-index: 1;
+}
+
+
+.sidebar .logo-menu {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  height: 50px;
+  padding: 1rem;
+  background: var(--glass-theme);
+}
+
+.sidebar .logo-menu .toggle-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgb(24, 22, 22);
+  font-size: 40px;
+  border-radius: 10px;
+  left: 90%;
+  transform: translateX(-50%);
+  color: var(--accent-color);
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sidebar .logo-menu .logo {
+  font-size: 50px;
+  color: var(--accent-color);
+  var(--accent-color);
+  pointer-events: none;
+
+}
+
+.sidebar .list {
+  margin-top: 10px;
+
+
+}
+
+.list .list-item {
+  list-style: none;
+  width: 100%;
+  height: 50px;
+  background: var(--glass-theme);
+  margin: 5px 0;
+  line-height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.list .list-item a {
+  font-size: 20px;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+.list .list-item a i {
+  color: var(--accent-color);
+  min-width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+
 #cards {
+  margin-left: 260px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;  
+  gap: 8px;
   max-width: 916px;
   width: calc(100% - 20px);
 }
 
-#cards:hover > .card::after {
+#cards:hover>.card::after {
   opacity: 1;
+}
+
+.card img {
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  align-items: center;
 }
 
 .card {
@@ -34,7 +170,9 @@ body {
   height: 260px;
   flex-direction: column;
   position: relative;
-  width: 300px;  
+  width: 300px;
+  overflow: hidden;
+  justify-content: center;
 }
 
 .card:hover::before {
@@ -55,25 +193,21 @@ body {
 }
 
 .card::before {
-  background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y), 
-    rgba(255, 255, 255, 0.06),
-    transparent 40%
-  );
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.06),
+      transparent 40%);
   z-index: 3;
 }
 
-.card::after {  
-  background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y), 
-    rgba(255, 255, 255, 0.4),
-    transparent 40%
-  );
+.card::after {
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.4),
+      transparent 40%);
   z-index: 1;
 }
 
-.card > .card-content {
-  background-color: var(--card-color);
+.card>.card-content {
+  background-color: rgba(31, 30, 30, 0.63);
   border-radius: inherit;
   display: flex;
   flex-direction: column;
@@ -82,18 +216,23 @@ body {
   padding: 10px;
   position: absolute;
   z-index: 2;
+  backdrop-filter: blur(3px);
 }
 
 /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
 
-h1, h2, h3, h4, span {
+h1,
+h2,
+h3,
+h4,
+span {
   color: rgb(240, 240, 240);
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   margin: 0px;
 }
 
-i {  
+i {
   color: rgb(240, 240, 240);
 }
 
@@ -105,7 +244,7 @@ i {
   overflow: hidden;
 }
 
-.card-image > i {
+.card-image>i {
   font-size: 6em;
   opacity: 0.25;
 }
@@ -124,18 +263,18 @@ i {
   gap: 10px;
 }
 
-.card-info > i {  
+.card-info>i {
   font-size: 1em;
   height: 20px;
   line-height: 20px;
 }
 
-.card-info-title > h3 {
+.card-info-title>h3 {
   font-size: 1.1em;
   line-height: 20px;
 }
 
-.card-info-title > h4 {
+.card-info-title>h4 {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.85em;
   margin-top: 8px;
@@ -145,15 +284,15 @@ i {
 
 @media(max-width: 1000px) {
   body {
-    align-items: flex-start;  
+    align-items: flex-start;
     overflow: auto;
   }
-  
-  #cards {    
+
+  #cards {
     max-width: 1000px;
     padding: 10px 0px;
   }
-  
+
   .card {
     flex-shrink: 1;
     width: calc(50% - 4px);
@@ -164,28 +303,28 @@ i {
   .card {
     height: 180px;
   }
-  
+
   .card-image {
-    height: 80px;  
+    height: 80px;
   }
-  
-  .card-image > i {
+
+  .card-image>i {
     font-size: 3em;
   }
-    
+
   .card-info-wrapper {
     padding: 0px 10px;
   }
-  
-  .card-info > i { 
-    font-size: 0.8em; 
+
+  .card-info>i {
+    font-size: 0.8em;
   }
-  
-  .card-info-title > h3 {
+
+  .card-info-title>h3 {
     font-size: 0.9em;
   }
 
-  .card-info-title > h4 {
+  .card-info-title>h4 {
     font-size: 0.8em;
     margin-top: 4px;
   }
@@ -195,53 +334,4 @@ i {
   .card {
     width: 100%;
   }
-}
-
-/* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
-
-#youtube-link {
-  bottom: 10px;
-}
-
-#youtube-link > i {
-  color: rgb(239, 83, 80);
-}
-
-#source-link {
-  bottom: 60px;
-}
-
-#source-link > i {
-  color: rgb(94, 106, 210);
-}
-
-.link {
-  align-items: center;
-  backdrop-filter: blur(3px);
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  cursor: pointer;  
-  display: inline-flex;
-  gap: 5px;
-  left: 10px;
-  padding: 10px 20px;
-  position: fixed;
-  text-decoration: none;
-  z-index: 100;
-}
-
-.link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.link > i, .link > span {
-  height: 20px;
-  line-height: 20px;
-}
-
-.link > span {
-  color: white;
 }
