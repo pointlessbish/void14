@@ -15,17 +15,18 @@ head {
 
 body {
   align-items: center;
-  background-color: var(--bg-color);
   display: flex;
   height: 100dvh;
   justify-content: center;
   margin: 0px;
   overflow: hidden;
   padding: 0px;
+  background-color: var(--bg-color);
   background: url(/Assets/image.png) no-repeat;
   background-size: 120%;
   background-position: center;
 }
+
 
 * {
   margin: 0;
@@ -44,9 +45,7 @@ body {
   background: var(--glass-theme);
   border-radius: 10px;
   backdrop-filter: blur(20px);
-  inset: 0.2rem;
-  stroke-width: 100px;
-  stroke: solid;
+  inset: 0.1rem;
   border: 2px solid var(--glass-theme-white);
   box-shadow: 0 0 10px;
 
@@ -66,6 +65,7 @@ body {
   stroke-width: 100px;
   stroke: solid;
   padding: 9px 14px;
+  z-index: 10;
 
 }
 
@@ -182,6 +182,15 @@ body {
 
 
 #cards {
+  margin-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 916px;
+  width: calc(100% - 20px);
+}
+
+#cards.active {
   margin-left: 260px;
   display: flex;
   flex-wrap: wrap;

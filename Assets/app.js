@@ -20,7 +20,9 @@ document.getElementById("cards").onmousemove = e => {
 
   const sidebar = document.querySelector(".sidebar");
   const toggleBtn = document.querySelector(".toggle-btn");
+  // const cards = document.querySelector("#cards");
 
   toggleBtn.addEventListener("click", () => {
     sidebar.classList.toggle("active");
+   // cards.classList.toggle("active");
   })
