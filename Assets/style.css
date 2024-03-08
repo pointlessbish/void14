@@ -73,6 +73,7 @@ body {
 .menu-btn #close-icon {
   display: none;
 }
+
 .menu-btn #menu-icon {
   color: var(--accent-color);
 }
@@ -80,7 +81,9 @@ body {
 #check {
   display: none;
   overflow: hidden;
+  opacity: 0;
 }
+
 #check:checked~.menu-btn #menu-icon {
   display: none;
   transition-delay: .4s;
@@ -174,7 +177,8 @@ body {
   text-align: center;
   display: flex;
   border-radius: 10px;
-  text-decoration: none; /* Remove underlines */
+  text-decoration: none;
+  /* Remove underlines */
   white-space: nowrap;
 }
 
