@@ -79,6 +79,7 @@ body {
 
 #check {
   display: none;
+  overflow: hidden;
 }
 #check:checked~.menu-btn #menu-icon {
   display: none;

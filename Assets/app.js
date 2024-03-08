@@ -24,5 +24,6 @@ document.getElementById("cards").onmousemove = e => {
 
   toggleBtn.addEventListener("click", () => {
     sidebar.classList.toggle("active");
+   // toggleBtn.classList.toggle("close-icon");
    // cards.classList.toggle("active");
   })
