@@ -19,7 +19,7 @@ document.getElementById("cards").onmousemove = e => {
 
 
   const sidebar = document.querySelector(".sidebar");
-  const toggleBtn = document.querySelector(".toggle-btn");
+  const toggleBtn = document.querySelector(".menu-btn");
   // const cards = document.querySelector("#cards");
 
   toggleBtn.addEventListener("click", () => {
