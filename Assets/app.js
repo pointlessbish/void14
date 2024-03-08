@@ -20,10 +20,12 @@ document.getElementById("cards").onmousemove = e => {
 
   const sidebar = document.querySelector(".sidebar");
   const toggleBtn = document.querySelector(".menu-btn");
+  const spacer = document.querySelector(".spacer");
   // const cards = document.querySelector("#cards");
 
   toggleBtn.addEventListener("click", () => {
     sidebar.classList.toggle("active");
+    spacer.classList.toggle("active");
    // toggleBtn.classList.toggle("close-icon");
    // cards.classList.toggle("active");
   })

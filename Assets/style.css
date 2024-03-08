@@ -8,6 +8,23 @@
   --card-content-bg: rgba(31, 30, 30, 0.63);
 }
 
+/* Custom scrollbar for WebKit browsers */
+html::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
 head {
   width: 100vw;
   height: 100dvh;
@@ -401,9 +418,166 @@ i {
   }
 }
 
-@media(max-width: 500px) {
+@media(max-width: 620px) {
+
+  body {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    height: 80dvh;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 40dvh;
+    overflow: scroll;
+    padding: 0px;
+    background-color: var(--bg-color);
+    background: url(/Assets/image.png) no-repeat;
+    background-size: 250dvh;
+    background-position: center;
+    background-attachment: fixed;
+    /* Keep fixed on scroll */
+  }
+
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95dvw;
+    height: 80px;
+    background: var(--glass-theme);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    inset: 2vw;
+    z-index: 10;
+  }
+
+  .sidebar.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95dvw;
+    height: 40dvh;
+    background: var(--glass-theme);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    inset: 2vw;
+    z-index: 10;
+  }
+
+  .menu-btn #close-icon {
+    display: none;
+  }
+
+  .menu-btn #menu-icon {
+    color: var(--accent-color);
+  }
+
+  #check {
+    display: none;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  #check:checked~.menu-btn #menu-icon {
+    display: none;
+    transition-delay: .4s;
+  }
+
+  #check:checked~.menu-btn #close-icon {
+    display: block;
+    transition-delay: .4s;
+  }
+
+  .sidebar .logo-menu {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    height: 50px;
+    padding: 1rem;
+
+  }
+
+  .sidebar .logo-menu .menu-btn {}
+
+  .sidebar.active .logo-menu .menu-btn {}
+
+  .sidebar .logo-menu .menu-btn:hover {
+    background: var(--glass-theme-white);
+    border-radius: 10px;
+  }
+
+  .sidebar .logo-menu .logo {
+    font-size: 25px;
+    color: var(--accent-color);
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+
+  }
+
+  .sidebar .list {
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+
+  .sidebar.active .list {
+    opacity: 1;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+
+  /* Adjust hover state and active state as needed */
+  .list .list-item.active a,
+  .list .list-item a:hover {
+    background: var(--glass-theme-white);
+  }
+
+  .list .list-item a i {
+    color: var(--accent-color);
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+    /* Add some spacing between icon and text */
+  }
+
+  .sidebar .link-name {
+    display: flex;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+
+  .sidebar.active .link-name {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: calc(.1s * var(--i));
+  }
+
+
+  .spacer {
+    padding: 80px;
+  }
+
+  .spacer.active {
+    padding: 700px;
+  }
+
+
+  #cards {
+
+    max-width: 1000px;
+    padding: 10px 0px;
+    margin-left: 20px;
+    flex-direction: column;
+  }
+
   .card {
-    height: 180px;
+    height: 25dvh;
+    width: 95%;
+
   }
 
   .card-image {
@@ -430,10 +604,7 @@ i {
     font-size: 0.8em;
     margin-top: 4px;
   }
-}
 
-@media(max-width: 320px) {
-  .card {
-    width: 100%;
-  }
+
+
 }
